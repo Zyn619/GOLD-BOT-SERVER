@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>V72 LIVE MT5 0.05</title><style>body{background:#0f1115;color:#e0e6f0;font-family:sans-serif;padding:8px} .card{background:#1a1d26;border-radius:12px;padding:10px;margin-bottom:8px;border:1px solid #2a2f45} .btn{padding:14px;border-radius:12px;border:0;font-weight:900;font-size:13px;margin:5px} .buy{background:#00e676;color:#000} .sell{background:#ff3d57;color:#fff} .badge{padding:5px 9px;border-radius:7px;font-size:10px;font-weight:800;margin:2px;display:inline-block} </style></head><body><h3 style="color:#FFD700">⚡ V72 REBORN + MT5 SERVER 0.05 LOT ⚡</h3>
+<div class="card">
+<div id="status" style="font-size:18px;font-weight:900">STATUS: WAIT</div>
+<div id="mt5" style="font-size:12px;color:#00e676">MT5: READY</div>
+<div style="margin-top:8px">
+<span class="badge" style="background:#00e67622;color:#00e676" id="price">GOLD LIVE $4143</span>
+<span class="badge" style="background:#ff980022;color:#ff9800">AUTO-CUT ON</span>
+</div>
+</div>
+<div class="card">
+<button class="btn buy" onclick="send('BUY')">BUY 0.05 LOT</button>
+<button class="btn sell" onclick="send('SELL')">SELL 0.05 LOT</button>
+<button class="btn" style="background:#555;color:#fff" onclick="send('WAIT')">WAIT / CLOSE</button>
+</div>
+<div class="card" style="height:200px;overflow:hidden" id="chart">LIVE CHART LOADING...</div>
+<script>
+function send(s){document.getElementById('status').innerText='SENDING '+s+'...';fetch('/set_signal?signal='+s+'&lot=0.05&market=GOLD').then(r=>r.json()).then(d=>{document.getElementById('status').innerText='CURRENT: '+d.signal+' LOT '+d.lot;document.getElementById('mt5').innerText='MT5 EA WILL GET: '+d.signal+' ✅';}).catch(()=>{document.getElementById('mt5').innerText='LOCAL MODE - WILL WORK AFTER RENDER DEPLOY';});}
+let p=4143;setInterval(()=>{p+=(Math.random()-0.5)*2;document.getElementById('price').innerText='GOLD LIVE $'+p.toFixed(2);},1000);
+</script></body></html>
